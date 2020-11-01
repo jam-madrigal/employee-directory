@@ -1,10 +1,10 @@
 import React from 'react';
-
+import Row from './components/Row'
 
 function App() {
   const employees = [{}]
   return (
-    "test"
+    <Row />
   );
 }
 
