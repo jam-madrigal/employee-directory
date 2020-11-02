@@ -4,7 +4,6 @@ import TableHead from './components/TableHeader/TableHeader'
 
 
 function App() {
-  const employees = [{}]
   return (
     <div className="container">
 
