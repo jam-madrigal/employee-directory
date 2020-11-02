@@ -1,9 +1,8 @@
 import React from "react";
 
-function Table(props) {
+function TableHead(props) {
 
   return (
-    <table>
         <thead>
             <tr>
                 <th>Full name</th>
@@ -12,8 +11,7 @@ function Table(props) {
                 <th>Email</th>
             </tr>
         </thead>
-    </table>
   );
 }
 
-export default Table;
+export default TableHead;
