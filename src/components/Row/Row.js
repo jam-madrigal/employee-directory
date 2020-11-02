@@ -9,7 +9,7 @@ function Row(props) {
   return (
     // Add a map() here that iterates through the array of employees and generates a row with the props in their corresponding columns
     <tr>
-        <td>{props.picture} Firstnamehere Lastnamehere</td>
+        <td>{props.photo} Firstnamehere Lastnamehere</td>
         <td>Genderhere</td>
         <td>Cityhere Statehere</td>
         <td>Emailhere</td>
