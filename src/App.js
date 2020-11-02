@@ -5,6 +5,9 @@ import TableHead from './components/TableHeader/TableHeader'
 
 function App() {
   return (
+    // There also needs to be a top page banner here with the title of the app
+    // Also add a search bar component, which filters the table as the user types
+    // Create clickable buttons on the table headres that sort the table by that header, either ascending or descending on click
     <div className="container">
 
       <div className="row">
