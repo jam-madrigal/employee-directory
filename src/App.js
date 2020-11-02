@@ -8,19 +8,19 @@ function App() {
   // Make this to a state instead for the filtering to function
   const tableStyles = {
     margin: '25px 0', 
-    'font-size': '0.9em', 
-    'min-width': '400px', 
-    'border-radius': '10px 10px 0 0', 
+    fontSize: '0.9em', 
+    minWidth: '400px', 
+    borderRadius: '10px 10px 0 0', 
     overflow: 'hidden', 
-    'box-shadow': '0 0 20px rgba(0, 0, 0, 0.15)'
+    boxShadow: '0 0 20px rgba(0, 0, 0, 0.15)'
   }
 
-  const employees = [{}];
+  let employees = [];
 
   // API call here that pushes to employees
-  API.getUsers((res) => {
-    console.log(res);
-    employees.push(res.results);
+  API.getUsers().then((res) => {
+    console.log(res.data.results);
+    employees.push(res.data.results);
   })
 
 
@@ -41,7 +41,18 @@ function App() {
         <table className="col-sm" style={tableStyles}>
         <TableHead />
           <tbody>
-            {employees.map((employee) => <Row photo={employee.picture}/>)}
+            {employees.map((employee) => { 
+              <Row 
+                key={employee.login.uuid}
+                photo={employee.picture.thumbnail}
+                name={employee.name.first}
+                lastname={employee.name.last}
+                city={employee.city}
+                userState={employee.state}
+                email={employee.email}
+              />
+              })
+            }
 
 
           </tbody>
