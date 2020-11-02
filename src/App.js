@@ -1,19 +1,26 @@
 import React from 'react';
-import Row from './components/Row'
-import Table from './components/Table'
+import Row from './components/Row/Row'
+import TableHead from './components/TableHeader/TableHeader'
 
 
 function App() {
   const employees = [{}]
   return (
-    <div>
-    <Table>
-      <tbody>
-        <Row />
-        <Row />
-        <Row />
-      </tbody>
-    </Table>
+    <div className="container">
+
+      <div className="row">
+
+        <table className="col-sm">
+        <TableHead />
+          <tbody>
+            <Row />
+            <Row />
+            <Row />
+          </tbody>
+        </table>
+        
+      </div>
+      
     </div>
   );
 }
