@@ -5,7 +5,7 @@ function Row(props) {
 
   return (
     <tr>
-        <td>Firstnamehere Lastnamehere</td>
+        <td>Imagehere Firstnamehere Lastnamehere</td>
         <td>Genderhere</td>
         <td>Cityhere Statehere</td>
         <td>Emailhere</td>
