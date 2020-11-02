@@ -1,0 +1,13 @@
+thead tr {
+    background-color: purple;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+
+}
+
+th, td {
+    padding: 12px 15px;
+
+}
+
