@@ -3,27 +3,35 @@ import Row from './components/Row/Row'
 import TableHead from './components/TableHeader/TableHeader'
 import API from './utils/API';
 
+const tableStyles = {
+  margin: '25px 0', 
+  fontSize: '0.9em', 
+  minWidth: '400px', 
+  borderRadius: '10px 10px 0 0', 
+  overflow: 'hidden', 
+  boxShadow: '0 0 20px rgba(0, 0, 0, 0.15)'
+}
 
-function App() {
+class App extends React.Component {
   // Make this to a state instead for the filtering to function
-  const tableStyles = {
-    margin: '25px 0', 
-    fontSize: '0.9em', 
-    minWidth: '400px', 
-    borderRadius: '10px 10px 0 0', 
-    overflow: 'hidden', 
-    boxShadow: '0 0 20px rgba(0, 0, 0, 0.15)'
+constructor() {
+  super() 
+  this.state = {
+    employees: []
   }
-
-  let employees = [];
-
-  // API call here that pushes to employees
+}
+  // API call here that pushes to 
+componentDidMount() {
   API.getUsers().then((res) => {
-    console.log(res.data.results);
-    employees.push(res.data.results);
+    // employees.push(res.data.results);
+    this.setState({
+      employees: res.data.results
+    })
+    // console.log(employees);
   })
+}
 
-
+render() {
   return (
 
     // There needs to be a top page banner here with the title of the app
@@ -41,7 +49,9 @@ function App() {
         <table className="col-sm" style={tableStyles}>
         <TableHead />
           <tbody>
-            {employees.map((employee) => { 
+          <Row employees={this.state.employees}/>
+
+            {/* {this.state.employees.map((employee) => { 
               <Row 
                 key={employee.login.uuid}
                 photo={employee.picture.thumbnail}
@@ -52,7 +62,7 @@ function App() {
                 email={employee.email}
               />
               })
-            }
+            } */}
 
 
           </tbody>
@@ -62,6 +72,7 @@ function App() {
       
     </div>
   );
+}
 }
 
 export default App;
