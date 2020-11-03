@@ -3,6 +3,7 @@ import Row from './components/Row/Row'
 import TableHead from './components/TableHeader/TableHeader'
 import API from './utils/API';
 
+// Styles to be used for the table div
 const tableStyles = {
   margin: '25px 0', 
   fontSize: '0.9em', 
@@ -13,21 +14,20 @@ const tableStyles = {
 }
 
 class App extends React.Component {
-  // Make this to a state instead for the filtering to function
+
+// Setting the initial state that can then hold the employees data from the api call, to be passed as props
 constructor() {
   super() 
   this.state = {
     employees: []
   }
 }
-  // API call here that pushes to 
+  // API call that, when the component successfully mounts, pushes the data into the state
 componentDidMount() {
   API.getUsers().then((res) => {
-    // employees.push(res.data.results);
     this.setState({
       employees: res.data.results
     })
-    // console.log(employees);
   })
 }
 
@@ -41,7 +41,7 @@ render() {
 
     // Create clickable buttons on the table headers that sort the table by that header, either ascending or descending on click 
 
-    // Add object for an api call here, push the object to an array, map over it and 
+// The html that gets rendered
     <div className="container">
 
       <div className="row">
@@ -50,20 +50,6 @@ render() {
         <TableHead />
           <tbody>
           <Row employees={this.state.employees}/>
-
-            {/* {this.state.employees.map((employee) => { 
-              <Row 
-                key={employee.login.uuid}
-                photo={employee.picture.thumbnail}
-                name={employee.name.first}
-                lastname={employee.name.last}
-                city={employee.city}
-                userState={employee.state}
-                email={employee.email}
-              />
-              })
-            } */}
-
 
           </tbody>
         </table>
