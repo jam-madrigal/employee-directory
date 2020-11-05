@@ -56,9 +56,6 @@ render() {
 
     // There needs to be a top page banner here with the title of the app
 
-    // Also add a search bar component, which filters the table as the user types
-    // Listens whenever there is a change on the input and searching for whatever matches the input in the object, use state to remove everything that doesn't match (activity 17)
-
     // Create clickable buttons on the table headers that sort the table by that header, either ascending or descending on click 
 
 // The html that gets rendered
