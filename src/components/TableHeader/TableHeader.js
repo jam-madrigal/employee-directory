@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 function TableHead(props) {
-
+  
   return (
         <thead>
             <tr>

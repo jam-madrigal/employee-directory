@@ -11,3 +11,9 @@ th, td {
 
 }
 
+th:hover {
+    color: silver;
+}
+
+
+

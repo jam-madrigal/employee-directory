@@ -21,7 +21,7 @@ constructor() {
   this.state = {
     employees: [],
     search: "",
-    sort: ""
+    sortType: "asc"
   }
 }
   // API call that, when the component successfully mounts, pushes the data into the state
@@ -44,7 +44,7 @@ onchange = e => {
 render() {
 
   // Filtering the table and re-rendering it based on search input, spanning every row visible row prop (name, gender, etc.)
-  let filteredEmployees = this.state.employees.filter( (employee) => {
+  const filteredEmployees = this.state.employees.filter( (employee) => {
     return employee.gender.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 ||
     employee.name.first.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 ||
     employee.name.last.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 ||
@@ -52,6 +52,14 @@ render() {
     employee.location.state.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 ||
     employee.email.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
   });
+
+  const {sortType} = this.state;
+
+  function sortEmployeesByName() { filteredEmployees.sort( (a, b) => {
+    const isReversed = (sortType === "asc") ? 1 : -1;
+    return isReversed * a.name.last.toString().localeCompare(b.name.last.toString())
+  });
+}
 
   return (
 
