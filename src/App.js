@@ -55,11 +55,10 @@ render() {
 
   const {sortType} = this.state;
 
-  function sortEmployeesByName() { filteredEmployees.sort( (a, b) => {
+  const sorted = filteredEmployees.sort( (a, b) => {
     const isReversed = (sortType === "asc") ? 1 : -1;
     return isReversed * a.name.last.toString().localeCompare(b.name.last.toString())
   });
-}
 
   return (
 
