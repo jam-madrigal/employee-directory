@@ -20,7 +20,8 @@ constructor() {
   super() 
   this.state = {
     employees: [],
-    search: ""
+    search: "",
+    sort: ""
   }
 }
   // API call that, when the component successfully mounts, pushes the data into the state
@@ -62,7 +63,7 @@ render() {
     <div className="container">
       {/* Search bar */}
       <div className="row">
-        <input type="text" className="col" placeholder="Search for an employee" onChange={this.onchange}/>
+        <input style={{marginTop: '15px'}} type="text" className="col" placeholder="Search for an employee" onChange={this.onchange}/>
       </div>
 
       {/* Table */}
