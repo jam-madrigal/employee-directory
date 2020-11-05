@@ -42,7 +42,7 @@ onchange = e => {
 
 render() {
 
-  // Filtering the table and re-rendering it based on search input
+  // Filtering the table and re-rendering it based on search input, spanning every row visible row prop (name, gender, etc.)
   let filteredEmployees = this.state.employees.filter( (employee) => {
     return employee.gender.toLowerCase().indexOf(this.state.search) !== -1 ||
     employee.name.first.toLowerCase().indexOf(this.state.search) !== -1 ||
