@@ -36,9 +36,22 @@ componentDidMount() {
 onchange = e => {
   this.setState({ search: e.target.value });
   console.log(this.state.search);
+
 }
 
+
 render() {
+
+  // Filtering the table and re-rendering it based on search input
+  let filteredEmployees = this.state.employees.filter( (employee) => {
+    return employee.gender.toLowerCase().indexOf(this.state.search) !== -1 ||
+    employee.name.first.toLowerCase().indexOf(this.state.search) !== -1 ||
+    employee.name.last.toLowerCase().indexOf(this.state.search) !== -1 ||
+    employee.location.city.toLowerCase().indexOf(this.state.search) !== -1 ||
+    employee.location.state.toLowerCase().indexOf(this.state.search) !== -1 ||
+    employee.email.toLowerCase().indexOf(this.state.search) !== -1
+  });
+
   return (
 
     // There needs to be a top page banner here with the title of the app
@@ -52,7 +65,7 @@ render() {
     <div className="container">
       {/* Search bar */}
       <div className="row">
-        <input type="text" className="col" label="Search for an employee" icon="search" onChange={this.onchange}/>
+        <input type="text" className="col" placeholder="Search for an employee" onChange={this.onchange}/>
       </div>
 
       {/* Table */}
@@ -60,7 +73,7 @@ render() {
         <table className="col-sm" style={tableStyles}>
         <TableHead />
           <tbody>
-          <Row employees={this.state.employees}/>
+          <Row employees={filteredEmployees}/>
 
           </tbody>
         </table>
