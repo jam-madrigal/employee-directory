@@ -19,7 +19,8 @@ class App extends React.Component {
 constructor() {
   super() 
   this.state = {
-    employees: []
+    employees: [],
+    search: ""
   }
 }
   // API call that, when the component successfully mounts, pushes the data into the state
@@ -29,6 +30,12 @@ componentDidMount() {
       employees: res.data.results
     })
   })
+}
+
+// When the search bar receives input
+onchange = e => {
+  this.setState({ search: e.target.value });
+  console.log(this.state.search);
 }
 
 render() {
@@ -43,9 +50,13 @@ render() {
 
 // The html that gets rendered
     <div className="container">
-
+      {/* Search bar */}
       <div className="row">
+        <input type="text" className="col" label="Search for an employee" icon="search" onChange={this.onchange}/>
+      </div>
 
+      {/* Table */}
+      <div className="row">
         <table className="col-sm" style={tableStyles}>
         <TableHead />
           <tbody>

@@ -4,6 +4,7 @@ import "./style.css";
 function Row(props) {
 
   return (
+
     // A map() here  iterates through the array of employees and generates a row with the props in their corresponding columns
     props.employees.map((employee) => {
     return (
