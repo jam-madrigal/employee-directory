@@ -44,12 +44,12 @@ render() {
 
   // Filtering the table and re-rendering it based on search input, spanning every row visible row prop (name, gender, etc.)
   let filteredEmployees = this.state.employees.filter( (employee) => {
-    return employee.gender.toLowerCase().indexOf(this.state.search) !== -1 ||
-    employee.name.first.toLowerCase().indexOf(this.state.search) !== -1 ||
-    employee.name.last.toLowerCase().indexOf(this.state.search) !== -1 ||
-    employee.location.city.toLowerCase().indexOf(this.state.search) !== -1 ||
-    employee.location.state.toLowerCase().indexOf(this.state.search) !== -1 ||
-    employee.email.toLowerCase().indexOf(this.state.search) !== -1
+    return employee.gender.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 ||
+    employee.name.first.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 ||
+    employee.name.last.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 ||
+    employee.location.city.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 ||
+    employee.location.state.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 ||
+    employee.email.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
   });
 
   return (
