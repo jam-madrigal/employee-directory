@@ -21,7 +21,7 @@ constructor() {
   this.state = {
     employees: [],
     search: "",
-    sortType: "asc"
+    sortType: ""
   }
 }
   // API call that, when the component successfully mounts, pushes the data into the state
@@ -52,7 +52,6 @@ render() {
     employee.location.state.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 ||
     employee.email.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
   });
-
   const {sortType} = this.state;
 
   const sorted = filteredEmployees.sort( (a, b) => {
@@ -84,6 +83,14 @@ render() {
         </table>
         
       </div>
+      {/* Buttons to sort by last name */}
+      <div className="row">
+        <div className="col">
+            <button className="btn btn-primary" style={{backgroundColor: 'purple', marginRight: "10px"}} onClick={() => this.setState({sortType: 'asc'})}>Sort by last name asc.</button>
+            <button className="btn btn-primary" style={{backgroundColor: 'purple'}} onClick={() => this.setState({sortType: 'desc'})}>Sort by last name desc.</button>
+        </div>
+      </div>
+
       
     </div>
   );
