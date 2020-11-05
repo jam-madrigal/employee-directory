@@ -18,7 +18,8 @@
 # Description
 This is a web application made with react and randomized user data that demonstrates rendering a table dynamically with user interaction.
 
-![Screenshot](https://user-images.githubusercontent.com/65047802/97083588-ddde3500-15c5-11eb-814c-ccfd4bc7d7ae.png)
+![Screenshot](https://user-images.githubusercontent.com/65047802/98208937-fa963900-1ef2-11eb-8180-cff1691cbac1.png)
+
 
 
 # Usage
